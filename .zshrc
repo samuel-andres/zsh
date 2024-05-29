@@ -52,7 +52,7 @@ precmd_functions+=(update_cursor)
 
 ###------------------- PROMPT ---------------------###
 function update_prompt() {
-    PROMPT="%F{blue}%~$(git-prompt-info) %(?.%F{green}.%F{red})%#%f "
+    PROMPT="%F{blue}($(hostname)) %~$(git-prompt-info) %(?.%F{green}.%F{red})%#%f "
 }
 precmd_functions+=(update_prompt)
 
