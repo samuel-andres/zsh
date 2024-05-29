@@ -61,15 +61,15 @@ source "$ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 ###------------------- EVALS ----------------------###
-eval "$(fnm env --use-on-cd)"
-eval "$(fzf --zsh)"
-eval "$(tmuxifier init -)"
+command -v fnm &> /dev/null && eval "$(fnm env --use-on-cd)"
+command -v fzf &> /dev/null && eval "$(fzf --zsh)"
+command -v tmuxifier &> /dev/null && eval "$(tmuxifier init -)"
 
 ###------------------ ALIASES ---------------------### 
 alias adb='HOME="$XDG_DATA_HOME"/android adb'
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 alias zshreload="source $XDG_CONFIG_HOME/zsh/.zshrc"
-alias cfz="cd $XDG_CONFIG_HOME/zsh/ && nvim"
+alias cfz="cd $XDG_CONFIG_HOME/zsh && nvim"
 alias cfv="cd $XDG_CONFIG_HOME/nvim && nvim"
 alias cfr="cd $XDG_CONFIG_HOME/ranger && nvim"
 alias cft="cd $XDG_CONFIG_HOME/tmux && nvim"
