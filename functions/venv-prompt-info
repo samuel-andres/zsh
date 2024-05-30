@@ -1,0 +1,11 @@
+#!/bin/sh
+
+function venv-prompt-info () {
+    local env=""
+    if test -z "$VIRTUAL_ENV" ; then
+        env=""
+    else
+        env=" %F{green}[`basename \"$VIRTUAL_ENV\"`]${COLOR_NONE} "
+    	echo "$env"
+    fi
+}
