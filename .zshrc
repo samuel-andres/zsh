@@ -30,6 +30,10 @@ bindkey -M menuselect 'down' vi-down-line-or-history
 bindkey -M menuselect 'up' vi-up-line-or-history
 bindkey -M menuselect 'right' vi-fordward-char
 _comp_options+=(globdots)
+
+# custom keybindings
+bindkey -s "^F" "tmux-sessionizer^M"
+
 # history options
 setopt extended_history
 setopt hist_save_no_dups
@@ -64,7 +68,6 @@ source "$ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 ###------------------- EVALS ----------------------###
 command -v fnm &> /dev/null && eval "$(fnm env --use-on-cd)"
 command -v fzf &> /dev/null && eval "$(fzf --zsh)"
-command -v tmuxifier &> /dev/null && eval "$(tmuxifier init -)"
 
 ###------------------ ALIASES ---------------------### 
 alias adb='HOME="$XDG_DATA_HOME"/android adb'
@@ -81,9 +84,13 @@ alias history="history 1"
 alias r="ranger"
 alias b=". bkekw"
 alias sr="ffmpeg -f x11grab -s $(awk '/dimensions/ {print $2}' <(xdpyinfo)) -i :0.0 output.mp4"
-alias tmuxi="tmuxifier"
 alias syadm="sudo yadm --yadm-dir /etc/yadm --yadm-data /etc/yadm/data"
 
-###---------------- SYSTEM FETCH ------------------### 
+###-------------------- TMUX ----------------------###
+if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
+    exec tmux new-session -A -s ${USER} >/dev/null 2>&1
+fi
+
+###---------------- SYSTEM FETCH ------------------###
 fastfetch
 
