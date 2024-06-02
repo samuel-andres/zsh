@@ -43,6 +43,7 @@ setopt hist_ignore_space
 setopt hist_verify
 setopt hist_ignore_all_dups
 setopt inc_append_history
+
 # vi mode
 function update_cursor() {
     echo -ne '\e[5 q'
@@ -54,6 +55,9 @@ bindkey -v
 bindkey '^V' edit-command-line
 bindkey "^?" backward-delete-char
 precmd_functions+=(update_cursor)
+
+# disable C-s from freezing terminal
+stty -ixon
 
 ###------------------- PROMPT ---------------------###
 function update_prompt() {
