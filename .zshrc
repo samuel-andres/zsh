@@ -90,6 +90,7 @@ alias b=". bkekw"
 alias sr="ffmpeg -f x11grab -s $(awk '/dimensions/ {print $2}' <(xdpyinfo)) -i :0.0 output.mp4"
 alias syadm="sudo yadm --yadm-dir /etc/yadm --yadm-data /etc/yadm/data"
 alias lg="lazygit"
+alias cpc="xsel --clipboard --input"
 
 ###-------------------- TMUX ----------------------###
 if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
