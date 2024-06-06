@@ -87,16 +87,10 @@ alias vim="nvim"
 alias history="history 1"
 alias r="ranger"
 alias b=". bkekw"
-alias sr="ffmpeg -f x11grab -s $(awk '/dimensions/ {print $2}' <(xdpyinfo)) -i :0.0 output.mp4"
+# alias sr="ffmpeg -f x11grab -s $(awk '/dimensions/ {print $2}' <(xdpyinfo)) -i :0.0 output.mp4"
 alias syadm="sudo yadm --yadm-dir /etc/yadm --yadm-data /etc/yadm/data"
 alias lg="lazygit"
 alias cpc="xsel --clipboard --input"
 
-###-------------------- TMUX ----------------------###
-if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
-    exec tmux new-session -A -s ${USER} >/dev/null 2>&1
-fi
-
 ###---------------- SYSTEM FETCH ------------------###
 fastfetch
-
